@@ -3,3 +3,7 @@
 a.out
 .vscode/
 **/.DS_Store
+
+cpu
+mem
+threads
