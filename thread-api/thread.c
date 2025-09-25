@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
+#include <unistd.h>
 
 // Thread creation and joining
 typedef struct  
@@ -77,4 +78,30 @@ void good_thread_creation() {
     pthread_t tid;
     pthread_create(&tid, NULL, good_thread, (void *)42);
     pthread_join(tid, NULL);
+}
+
+// Race condition example
+int counter = 0; // shared date
+
+void* increment(void* arg) {
+    for (int i = 0; i < 1000000; i++) {
+        counter++; // Not atomic!
+        // This compiles to:
+        //   mov counter, %eax
+        //   add $1, %eax
+        //   mov %eax, counter
+    }
+    return NULL;
+}
+
+int main() {
+    pthread_t t1, t2;
+
+    pthread_create(&t1, NULL, increment, NULL);
+    pthread_create(&t2, NULL, increment, NULL);
+    pthread_join(t1, NULL);
+    pthread_join(t2, NULL);
+
+    printf("Counter: %d (Exp:2000000)\n", counter);
+    return 0;
 }
