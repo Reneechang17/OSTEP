@@ -1,5 +1,5 @@
 /**
- * OSTEP - Concurrenct 
+ * OSTEP - Concurrency
  * Essential pthread API and common pitfalls
  */
 
