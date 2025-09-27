@@ -99,7 +99,6 @@ int main() {
     printf("Value: %d\n", safe_counter.value);
     printf("Time: %.3f seconds\n", end_time - start_time);
     
-
     // Clean
     pthread_mutex_destroy(&safe_counter.lock);
 
