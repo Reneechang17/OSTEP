@@ -1,5 +1,6 @@
 {
-    "files.associations": {
-        "locale": "c"
-    }
+  "files.associations": {
+    "locale": "c",
+    "time.h": "c"
+  }
 }
