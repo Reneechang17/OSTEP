@@ -2,7 +2,7 @@
  * OSTEP - Concurrency
  * 
  * Concurrent hash table with per-bucket locking
- * This is somewhat Redis/Memcached's basic (they have better hash func and dynamic scale)
+ * This is somewhat Redis/Memcached's basic (they have better hash func and dynamic scaling)
  */
 
 #include <stdio.h>
